@@ -1,0 +1,54 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
+fi
+
+unset rc
+shopt -s histappend
+PROMPT_COMMAND="history -a;history -c;history -r;$PROMPT_COMMAND"
+EDITOR=/usr/bin/vi
+
+if [ "$PS1" ]; then
+   PS1="[\u@\h:\l \W]\\$ "
+fi
+
+function ubuntu(){
+    echo "🚀"
+}
+
+if [ -f /run/.containerenv ]; then
+   ## Distrobox Aliases
+   eval "$(starship init bash)";
+else
+   ## Host Aliases
+   alias fs="flatpak search --columns=description,application,version";     
+   alias windows="systemctl reboot --firmware-setup"; 
+   mesa=`flatpak info org.freedesktop.Platform.GL.default//22.08 | awk -F': ' '/Version/ {print $2}' | uniq`
+   echo mesa: $mesa 
+fi
+
+kernel=`uname -r`
+cache0=`/usr/bin/du -hs /var/home/jorge/steam/SteamLibrary/steamapps/shadercache | cut -f1`
+echo kernel: $kernel
+echo "shaders: " $cache0 

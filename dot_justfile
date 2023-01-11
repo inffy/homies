@@ -1,0 +1,43 @@
+default:
+  @just --list
+
+alpine-distrobox:
+  distrobox create --image quay.io/toolbx-images/alpine-toolbox:3.17 -n alpine --pre-init-hooks "apk add just starship"
+
+alpine-setup:
+  sudo apk add python3 btop micro helix chezmoi fzf
+
+flatpaks:
+  flatpak install -y --user \\
+  com.discordapp.Discord \\
+  com.mastermindzh.tidal-hifi \\
+  com.microsoft.Edge \\
+  com.plexamp.Plexamp \\
+  com.slack.Slack \\
+  com.todoist.Todoist \\
+  com.visualstudio.code \\
+  im.riot.Riot \\
+  no.mifi.losslesscut \\
+  org.standardnotes.standardnotes \\
+  tv.plex.PlexDesktop \\
+  us.zoom.Zoom
+
+flatpaks-gaming:
+  flatpak install -y --user \\
+  com.feaneron.Boatswain \\
+  org.freedesktop.Platform.VulkanLayer.MangoHud \\
+  org.freedesktop.Platform.VulkanLayer.OBSVkCapture \\
+  com.obsproject.Studio \\
+  com.obsproject.Studio.Plugin.OBSVkCapture \\
+  com.obsproject.Studio.Plugin.Gstreamer \\
+  com.usebottles.bottles \\
+  com.valvesoftware.Steam \\
+  com.valvesoftware.Steam.Utility.gamescope
+  
+ubuntu-distrobox:
+  distrobox create --image quay.io/toolbx-images/ubuntu-toolbox:22.04 -n ubuntu "sudo apt install -y just"
+
+update:
+  rpm-ostree update
+  flatpak update -y
+  distrobox upgrade -a
