@@ -21,6 +21,8 @@ flatpaks:
   org.standardnotes.standardnotes \\
   tv.plex.PlexDesktop \\
   us.zoom.Zoom
+  # Make PWAs work:
+  flatpak override --user --filesystem=~/.local/share/applications --filesystem=~/.local/share/icons com.microsoft.Edge
 
 flatpaks-gaming:
   flatpak install -y --user \\
