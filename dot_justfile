@@ -43,3 +43,6 @@ update:
   rpm-ostree update
   flatpak update -y
   distrobox upgrade -a
+
+windows:
+  sudo systemctl reboot --firmware-setup
