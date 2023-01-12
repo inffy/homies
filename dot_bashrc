@@ -43,7 +43,6 @@ if [ -f /run/.containerenv ]; then
 else
    ## Host Aliases
    alias fs="flatpak search --columns=description,application,version";     
-   alias windows="systemctl reboot --firmware-setup"; 
    mesa=`flatpak info org.freedesktop.Platform.GL.default//22.08 | awk -F': ' '/Version/ {print $2}' | uniq`
    echo mesa: $mesa 
 fi
