@@ -5,7 +5,7 @@ alpine-distrobox:
   distrobox create --image quay.io/toolbx-images/alpine-toolbox:3.17 -n alpine --pre-init-hooks "apk add just starship"
 
 alpine-setup:
-  sudo apk add python3 btop micro helix chezmoi fzf
+  sudo apk add btop chezmoi fzf helix micro plocate python3 
 
 flatpaks:
   flatpak install -y --user \\
