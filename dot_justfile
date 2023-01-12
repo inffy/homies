@@ -27,7 +27,7 @@ flatpaks:
 flatpaks-gaming:
   flatpak install -y --user \\
   com.feaneron.Boatswain \\
-  org.freedesktop.Platform.VulkanLayer.MangoHud \\
+  org.freedesktop.Platform.VulkanLayer.MangoHud//22.08 \\
   org.freedesktop.Platform.VulkanLayer.OBSVkCapture \\
   com.obsproject.Studio \\
   com.obsproject.Studio.Plugin.OBSVkCapture \\
