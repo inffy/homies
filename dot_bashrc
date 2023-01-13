@@ -50,6 +50,4 @@ else
 fi
 
 kernel=`uname -r`
-#cache0=`/usr/bin/du -hs /var/home/jorge/steam/SteamLibrary/steamapps/shadercache | cut -f1`
 echo kernel: $kernel
-#echo "shaders: " $cache0 
