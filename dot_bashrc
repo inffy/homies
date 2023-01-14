@@ -39,7 +39,7 @@ function ubuntu(){
 
 if [ -f /run/.containerenv ]; then
    ## Distrobox Aliases
-   alias vi=hx
+   alias vi=nvim
    alias locate=plocate
    eval "$(starship init bash)";
 else
