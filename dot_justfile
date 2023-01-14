@@ -41,7 +41,10 @@ ubuntu-distrobox:
 update:
   rpm-ostree update
   flatpak update -y
-  distrobox upgrade -a
+  distrobox stop alpine -Y
+  distrobox rm -f alpine
+  distrobox create -i ghcr.io/ublue-os/boxkit -n alpine
+  distrobox upgrade -a 
 
 windows:
   sudo systemctl reboot --firmware-setup
