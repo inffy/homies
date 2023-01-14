@@ -2,6 +2,7 @@ default:
   @just --list
 
 boxkit:
+  distrobox stop alpine
   distrobox rm -f alpine
   distrobox create -i ghcr.io/ublue-os/boxkit -n alpine
 
