@@ -1,11 +1,9 @@
 default:
   @just --list
 
-alpine-distrobox:
-  distrobox create --image quay.io/toolbx-images/alpine-toolbox:3.17 -n alpine --pre-init-hooks "apk add just starship"
-
-alpine-setup:
-  sudo apk add btop chezmoi fzf helix micro plocate python3 
+boxkit:
+  distrobox delete -f alpine
+  distrobox create -i ghcr.io/ublue-os/boxkit -n alpine
 
 flatpaks:
   flatpak install -y --user \\
