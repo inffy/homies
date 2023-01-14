@@ -44,7 +44,7 @@ update:
   distrobox stop alpine -Y
   distrobox rm -f alpine
   distrobox create -i ghcr.io/ublue-os/boxkit -n alpine
-  distrobox upgrade -a 
+  distrobox upgrade fedora-toolbox ubuntu-toolbox-22
 
 windows:
   sudo systemctl reboot --firmware-setup
