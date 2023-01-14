@@ -2,7 +2,7 @@ default:
   @just --list
 
 boxkit:
-  distrobox delete -f alpine
+  distrobox rm -f alpine
   distrobox create -i ghcr.io/ublue-os/boxkit -n alpine
 
 flatpaks:
