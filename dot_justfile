@@ -4,7 +4,7 @@ default:
 boxkit:
   distrobox stop alpine -Y
   distrobox rm -f alpine
-  distrobox create -i ghcr.io/ublue-os/boxkit -n alpine --pre-init-hooks "distrobox-host-exec --yes"
+  distrobox create -i ghcr.io/ublue-os/boxkit -n alpine --pre-init-hooks "distrobox-host-exec --yes" 
 
 flatpaks:
   flatpak install -y --user \\
