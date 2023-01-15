@@ -34,7 +34,8 @@ flatpaks-gaming:
   com.usebottles.bottles \\
   com.valvesoftware.Steam \\
   com.valvesoftware.Steam.Utility.gamescope
-  
+  flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam
+ 
 ubuntu-distrobox:
   distrobox create --image quay.io/toolbx-images/ubuntu-toolbox:22.04 -n ubuntu "sudo apt install -y just"
 
