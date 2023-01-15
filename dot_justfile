@@ -4,7 +4,7 @@ default:
 boxkit:
   distrobox stop alpine -Y
   distrobox rm -f alpine
-  distrobox create -i ghcr.io/ublue-os/boxkit -n alpine --pre-init-hooks "distrobox-host-exec --yes" 
+  distrobox create -i ghcr.io/ublue-os/boxkit -n alpine  
 
 flatpaks:
   flatpak install -y --user \\
@@ -24,6 +24,7 @@ flatpaks:
   flatpak override --user --filesystem=~/.local/share/applications --filesystem=~/.local/share/icons com.microsoft.Edge
 
 flatpaks-gaming:
+  just flatpaks
   flatpak install -y --user \\
   com.feaneron.Boatswain \\
   org.freedesktop.Platform.VulkanLayer.MangoHud//22.08 \\
@@ -37,14 +38,11 @@ flatpaks-gaming:
   flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam
  
 ubuntu-distrobox:
-  distrobox create --image quay.io/toolbx-images/ubuntu-toolbox:22.04 -n ubuntu "sudo apt install -y just"
+  distrobox create --image quay.io/toolbx-images/ubuntu-toolbox:22.04 -n ubuntu --pre-init-hooks  "sudo apt install -y just"
 
 update:
   rpm-ostree update
   flatpak update -y
-  distrobox stop alpine -Y
-  distrobox rm -f alpine
-  distrobox create -i ghcr.io/ublue-os/boxkit -n alpine
   distrobox upgrade fedora-toolbox ubuntu-toolbox-22
 
 windows:
